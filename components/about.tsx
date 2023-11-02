@@ -16,10 +16,10 @@ export default function About() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("/api/about");
+                const res = await fetch("/api/portfolio?type=about");
                 const data = await res.json();
-                setItemList(data.data);
-                console.log(data.data);
+                setItemList(data.dataWork);
+                console.log(data.dataWork);
             } catch (error) {
                 console.log(error);
             }

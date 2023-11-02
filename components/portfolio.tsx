@@ -13,9 +13,9 @@ export default function Portfolio() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("/api/portfolio");
+                const res = await fetch("/api/portfolio?type=portfolio");
                 const data = await res.json();
-                setSkillList(data.data);
+                setSkillList(data.dataWork);
             } catch (error) {
                 console.log(error);
             }
@@ -25,14 +25,6 @@ export default function Portfolio() {
 
     return (
         <>
-            {
-                skillList.map((e, i) => {
-                    console.log(e, i);
-                    return (
-                        <p>{e.title}</p>
-                    )
-                })
-            }
         </>
     )
 }

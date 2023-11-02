@@ -19,9 +19,9 @@ export default function Nav() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("/api/nav");
+                const res = await fetch("/api/portfolio?type=nav");
                 const data = await res.json();
-                setMenuList(data.data);
+                setMenuList(data.dataWork);
             } catch (error) {
                 console.log(error);
             }
@@ -45,7 +45,7 @@ export default function Nav() {
                     <div className="basis-3/4 hidden md:block">
                         <ul className="flex justify-around">
                             {
-                                menuList.map((e, i) => { // map문 : 원본이 유지되는 새로운 반복문, foreach문 : 원본 수정 가능, 근데 react에서는 못 씀
+                                menuList && menuList.map((e, i) => { // map문 : 원본이 유지되는 새로운 반복문, foreach문 : 원본 수정 가능, 근데 react에서는 못 씀
                                     return (
                                         <li className="relative hover:font-bold after:absolute after:w-full after:h-0.5 after:bg-black after:bottom-0 after:left-0 after:transition-all after:duration-500 after:scale-x-0 hover:after:scale-x-100" key={i}><Link href={e.link}>{e.name}</Link></li>
                                     )
@@ -67,7 +67,7 @@ export default function Nav() {
                 </div>
                 <ul className="mt-12">
                     {
-                        menuList.map((e, i) => {
+                        menuList && menuList.map((e, i) => {
                             return (
                                 <li key={i} className="pt-5 pb-2 border-b border-[#fdc3bc] hover:font-bold"><FontAwesomeIcon icon={icons[i]} className="mr-2" /><Link href={e.link}>{e.name}</Link></li>
                             )

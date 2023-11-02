@@ -36,9 +36,9 @@ export default function Work() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("/api/work");
+                const res = await fetch("/api/portfolio?type=work");
                 const data = await res.json();
-                setItemList(data.data);
+                setItemList(data.dataWork);
             } catch (error) {
                 console.log(error);
             }

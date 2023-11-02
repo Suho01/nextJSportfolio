@@ -24,18 +24,26 @@ a {
     bottom: 0;
     overflow: hidden;
 }
+@keyframes adhd {
+    0% {
+        transform: rotateX(170deg) rotateY(1657deg) rotateZ(32deg);
+    }
+}
 .mokup-img > div:nth-child(1) {
     width: 85%;
     left: 50%;
     transform: translateX(-50%);
+    animation: adhd 2s infinite;
 }
 .mokup-img > div:nth-child(2) {
     width: 35%;
     right: 0;
+    animation: adhd 3s infinite;
 }
 .mokup-img > div:nth-child(3) {
     width: 23%;
     left: 0;
+    animation: adhd 4s infinite;
 }
 .mokup-img > div:nth-child(1)::after {
     content: "";
@@ -48,6 +56,7 @@ a {
     background-size: cover;
     transition: 5s;
 }
+
 .mokup-img > div:nth-child(2)::after {
     content: "";
     position: absolute;

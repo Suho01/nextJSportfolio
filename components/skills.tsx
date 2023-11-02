@@ -16,9 +16,9 @@ export default function Skills() {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const res = await fetch("/api/skills");
+                const res = await fetch("/api/portfolio?type=skills");
                 const data = await res.json();
-                setItemList(data.data);
+                setItemList(data.dataWork);
                 
                 setTimeout(() => {
                     setProgressBar(true);
